@@ -27,6 +27,7 @@ public class WordQueryResource implements WordQueryEndpoint {
         this.wordCountDao = wordCountDao;
     }
 
+    // health check endpoint
     @GET
     @Path("/ping")
     @Produces("text/plain")
