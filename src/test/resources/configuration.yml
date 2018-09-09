@@ -21,7 +21,7 @@ database:
   password: ""
 
   # the JDBC URL
-  url: "jdbc:mysql://localhost:3306/spotify?useUnicode=true&amp;characterEncoding=UTF-8"
+  url: "jdbc:mysql://localhost:3306/spotify"
 
   # the SQL query to run when validating a connection's liveness
   validationQuery: "/* APIService Health Check */ SELECT 1"

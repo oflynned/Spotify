@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import static com.interview.Common.Services.DbHelper.getTimestamp;
 
 public class FetchSoundcloudApi {
-    private static final String URL = "https://api.soundcloud.com/tracks?client_id=3a792e628dbaf8054e55f6e134ebe5fa";
+    public static final String URL = "https://api.soundcloud.com/tracks?client_id=3a792e628dbaf8054e55f6e134ebe5fa";
 
     public static ArrayList<Song> fetchSoundcloudSongs() throws SoundcloudServerException {
         Response response = fetchRemoteData();

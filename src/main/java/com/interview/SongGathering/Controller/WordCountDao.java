@@ -8,7 +8,7 @@ import org.skife.jdbi.v2.sqlobject.customizers.RegisterMapper;
 
 import java.util.List;
 
-@RegisterMapper(SongResultMapper.class)
+@RegisterMapper(WordCountMapper.class)
 public interface WordCountDao {
 
     // find occurrences of the word fragment by replacing all instances with ''
@@ -19,6 +19,7 @@ public interface WordCountDao {
                     "(SELECT timestamp, ROUND((CHAR_LENGTH(lower(title)) - CHAR_LENGTH(REPLACE(lower(title), :w, ''))) / CHAR_LENGTH(:w)) AS count " +
                     "FROM songs " +
                     "WHERE title LIKE CONCAT('%',:w,'%') AND timestamp >= :start AND timestamp <= :end) AS c " +
-                    "GROUP BY timestamp")
+                    "GROUP BY timestamp " +
+                    "ORDER BY timestamp ASC")
     List<WordCount> getWordCountByParameters(@Bind("w") String word, @Bind("start") String startDate, @Bind("end") String endDate) throws IllegalQueryException;
 }

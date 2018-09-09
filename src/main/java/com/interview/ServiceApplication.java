@@ -48,8 +48,8 @@ public class ServiceApplication extends Application<ServiceConfiguration> {
 
     @Override
     public void run(ServiceConfiguration config, Environment env) {
-        config.getFlywayFactory().build(config.getDataSourceFactory().build(env.metrics(), "db")).clean();
-        config.getFlywayFactory().build(config.getDataSourceFactory().build(env.metrics(), "db")).migrate();
+//        config.getFlywayFactory().build(config.getDataSourceFactory().build(env.metrics(), "db")).clean();
+//        config.getFlywayFactory().build(config.getDataSourceFactory().build(env.metrics(), "db")).migrate();
 
         final DBIFactory factory = new DBIFactory();
         final DBI dbi = factory.build(env, config.getDataSourceFactory(), "mysql");
@@ -63,7 +63,7 @@ public class ServiceApplication extends Application<ServiceConfiguration> {
         SongDaoImpl songDaoImpl = new SongDaoImpl(songDao);
         WordCountDaoImpl wordCountDaoImpl = new WordCountDaoImpl(wordCountDao);
 
-        WordQueryResource wordQueryResource = new WordQueryResource(dbi, songDaoImpl, wordCountDaoImpl);
+        WordQueryResource wordQueryResource = new WordQueryResource(songDaoImpl, wordCountDaoImpl);
 
         env.jersey().register(wordQueryResource);
 

@@ -19,14 +19,12 @@ import javax.ws.rs.core.Response;
 @Consumes(MediaType.APPLICATION_JSON)
 public class WordQueryResource implements WordQueryEndpoint {
 
-    private final DBI dbi;
     private final SongDao songDao;
     private final WordCountDao wordCountDao;
 
-    public WordQueryResource(DBI dbi, SongDao songDao, WordCountDao wordCountDao) {
+    public WordQueryResource(SongDao songDao, WordCountDao wordCountDao) {
         this.songDao = songDao;
         this.wordCountDao = wordCountDao;
-        this.dbi = dbi;
     }
 
     @GET

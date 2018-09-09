@@ -2,7 +2,7 @@
 
 ## Setup
 - Install MySQL 8.x.x locally and set it running with Brew in the background
-- Create a database named `spotify` and set its encoding to be `utf8mb4` wiht SequelPro
+- Create a database named `spotify` and set its encoding to be `utf8mb4` with SequelPro
 - Run `mvn package` to generate a .jar package in /target
 - Import the project into IntelliJ IDEA and edit configurations.
 - Add `server configuration.yml` as the program arguments
